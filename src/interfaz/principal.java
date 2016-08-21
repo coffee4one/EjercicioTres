@@ -48,10 +48,18 @@ public class principal extends javax.swing.JFrame {
 
         jLabel2.setText("Saldo inicial:");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, -1, -1));
+
+        txtsaldoinicial.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtsaldoinicialKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtsaldoinicial, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, 120, -1));
 
         jLabel3.setText("Saldo final:");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 130, -1, -1));
+
+        txtsaldofinal.setEditable(false);
         jPanel1.add(txtsaldofinal, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 130, 120, -1));
 
         cmdcalcular.setText("calcular");
@@ -109,6 +117,15 @@ public class principal extends javax.swing.JFrame {
             
             txtsaldoinicial.requestFocusInWindow();
     }//GEN-LAST:event_cmdborrarActionPerformed
+
+    private void txtsaldoinicialKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtsaldoinicialKeyTyped
+             char c=evt.getKeyChar();
+            
+            if (!Character.isDigit(c) && c != '.') {
+                getToolkit().beep();
+                evt.consume();
+        }
+    }//GEN-LAST:event_txtsaldoinicialKeyTyped
 
     /**
      * @param args the command line arguments
